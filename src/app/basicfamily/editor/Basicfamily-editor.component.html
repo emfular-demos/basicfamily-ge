@@ -1,19 +1,39 @@
-<emfular-basic-editor
-  [svgwidth]="svgwidth"
-  [svgheight]="svgheigth"
-  [modelService]="modelService"
->
-  <!-- Default sidebar -->
-  <emfular-model-editing-bar
-    sidebar
-    [buttons]="sidebarButtons">
-  </emfular-model-editing-bar>
+<div class="editor-layout">
+    <div class="editor-top" [class.with-bottom-panel]="selectedPersonForBottomView">
+        <div class="editor-scroll-container">
+            <emfular-basic-editor
+                    [svgwidth]="svgwidth"
+                    [svgheight]="svgheigth"
+                    [modelService]="modelService"
+            >
+                <!-- Default sidebar -->
+                <emfular-model-editing-bar
+                        sidebar
+                        [buttons]="sidebarButtons">
+                </emfular-model-editing-bar>
 
-  <!-- Default canvas content, needs svg namespace just like components -->
-  <svg:g canvas>
-    <g family
-       [family]="modelService.model"
-    (chosePerson)="choose($event)">
-    </g>
-  </svg:g>
-</emfular-basic-editor>
+                <!-- Default canvas content, needs svg namespace just like components -->
+                <svg:g canvas>
+                    <g family
+                       [family]="modelService.model"
+                       (chosePerson)="choose($event)"
+                       (doubleClickPerson)="openBottomView($event)">
+                    </g>
+                </svg:g>
+            </emfular-basic-editor>
+        </div>
+    </div>
+
+    <div class="bottom-panel editor-scroll-container" *ngIf="selectedPersonForBottomView">
+        <div class="bottom-panel-header">
+            <span>Person view</span>
+            <button type="button" class="close-button" (click)="closeBottomView()">×</button>
+        </div>
+
+        <div class="bottom-panel-content">
+            <app-person-bottom-panel
+                    [person]="selectedPersonForBottomView">
+            </app-person-bottom-panel>
+        </div>
+    </div>
+</div>

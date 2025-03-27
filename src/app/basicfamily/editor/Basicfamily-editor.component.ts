@@ -10,13 +10,17 @@ import {FamilyComponent} from "../graphical/family/family.component";
 import {PersonDetailsService} from "../details/person-details.service";
 import {Person} from "../core/Person";
 import {HttpClient} from "@angular/common/http";
+import {PersonBottomPanelComponent} from "../details/person-bottom-panel/person-bottom-panel.component";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'Basicfamily-editor',
   imports: [
     ModelEditingBarComponent,
     BasicEditorComponent,
-    FamilyComponent
+    FamilyComponent,
+    PersonBottomPanelComponent,
+    NgIf
   ],
   templateUrl: './Basicfamily-editor.component.html',
   styleUrl: './Basicfamily-editor.component.css'
@@ -26,6 +30,7 @@ export class BasicfamilyEditorComponent{
   svgwidth = 1500;
   svgheigth = 1000;
   sidebarButtons: Array<EditButtonDef> | null = null;
+  selectedPersonForBottomView: Person | null = null;
 
   constructor(
     public personDetailsService: PersonDetailsService,
@@ -74,6 +79,14 @@ export class BasicfamilyEditorComponent{
     this.http.get('assets/big-family-example.json').subscribe(json => {
       this.modelService.loadFromJson(json);
     });
+  }
+
+  openBottomView(person: Person) {
+    this.selectedPersonForBottomView = person;
+  }
+
+  closeBottomView() {
+    this.selectedPersonForBottomView = null;
   }
 
 
