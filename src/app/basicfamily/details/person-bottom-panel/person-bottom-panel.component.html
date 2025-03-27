@@ -1,0 +1,64 @@
+<div class="person-bottom-panel">
+  <ng-container *ngIf="person as currentPerson" class="person-card">
+    <div class="person-title">
+      <img [src]="getPersonIcon(currentPerson)" class="person-icon" />
+      {{ currentPerson.name }}
+    </div>
+
+    <table class="family-table">
+      <thead>
+        <tr>
+          <th class="col-parents">Parents</th>
+          <th class="col-siblings">Siblings</th>
+          <th class="col-children">Children</th>
+          <th *ngFor="let child of getChildrenWithChildren(currentPerson)" class="col-sub">
+            {{ child.name }}'s children
+          </th>
+          <th *ngIf="getCousins(currentPerson).length !== 0" class="col-cousins">Cousins</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td class="col-parents">
+            <div *ngIf="currentPerson.parents.length === 0">-</div>
+            <div *ngFor="let parent of currentPerson.parents" class="person-entry">
+              <img [src]="getPersonIcon(parent)" class="person-icon" />
+              {{ parent.name }}
+            </div>
+          </td>
+
+          <td class="col-siblings">
+            <div *ngIf="getSiblings(currentPerson).length === 0">-</div>
+            <div *ngFor="let sibling of getSiblings(currentPerson)" class="person-entry">
+              <img [src]="getPersonIcon(sibling)" class="person-icon" />
+              {{ sibling.name }}
+            </div>
+          </td>
+
+          <td class="col-children">
+            <div *ngIf="currentPerson.children.length === 0">-</div>
+            <div *ngFor="let child of currentPerson.children" class="person-entry">
+              <img [src]="getPersonIcon(child)" class="person-icon" />
+              {{ child.name }}
+            </div>
+          </td>
+
+          <td *ngFor="let child of getChildrenWithChildren(currentPerson)" class="col-sub">
+            <div *ngFor="let grandchild of getChildrenOf(child)" class="person-entry">
+              <img [src]="getPersonIcon(grandchild)" class="person-icon" />
+              {{ grandchild.name }}
+            </div>
+          </td>
+
+          <td *ngIf="getCousins(currentPerson).length !== 0" class="col-cousins">
+            <div *ngFor="let cousin of getCousins(currentPerson)" class="person-entry">
+              <img [src]="getPersonIcon(cousin)" class="person-icon" />
+              {{ cousin.name }}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>

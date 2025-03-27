@@ -1,0 +1,104 @@
+.person-bottom-panel {
+  padding: 16px;
+}
+
+.panel-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.person-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.person-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.person-card {
+  width: 1100px;
+  margin: 20px auto;
+  border: 2px solid #555;
+  background: #f7f7f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.person-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 12px 0;
+  border-bottom: 2px solid #555;
+  background: linear-gradient(to bottom, #f2f2f2, #dddddd);
+}
+
+.family-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  table-layout: auto;
+  overflow-x: scroll;
+}
+
+.family-table th,
+.family-table td {
+  border: 1px solid #999;
+  vertical-align: top;
+  padding: 12px 14px;
+}
+
+.family-table th {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.family-table td {
+  font-size: 16px;
+  min-height: 180px;
+  height: 180px;
+}
+
+.family-table td div {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+/* Column-colors */
+.col-parents {
+  background: linear-gradient(to right, #dff3ff, #eefaff);
+}
+
+.col-siblings {
+  background: linear-gradient(to right, #e0f5c8, #f1fbe7);
+}
+
+.col-children {
+  background: linear-gradient(to right, #ffe95c, #fff7b8);
+}
+
+.col-sub {
+  background: linear-gradient(to right, #f7efbf, #fcf8de);
+}
+
+.col-cousins {
+  background: linear-gradient(to right, #e6dcff, #f3edff);
+}
+
+th.col-sub {
+  font-style: italic;
+  font-size: 17px;
+}
+
+.family-table td div,
+.family-table th {
+  white-space: nowrap;
+}
