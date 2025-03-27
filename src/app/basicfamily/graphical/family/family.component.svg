@@ -4,6 +4,7 @@
     *ngFor="let person of family.members"
     [person] = "person"
        (chosePerson)="chosePerson.emit($event)"
+       (doubleClickPerson)="doubleClickPerson.emit($event)"
     >
     </g>
 </svg:g>
