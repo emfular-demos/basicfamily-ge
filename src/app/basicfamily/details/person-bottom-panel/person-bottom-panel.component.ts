@@ -13,7 +13,7 @@ export class PersonBottomPanelComponent {
 
   getSiblings(person: Person): Person[] {
     const allChildren =  person.parents.flatMap(p => p.children)
-    return allChildren.filter(p => p !== person);
+    return [...new Set(allChildren)].filter(p => p !== person)
   }
 
   getChildrenWithChildren(person: Person): Person[] {
@@ -21,7 +21,7 @@ export class PersonBottomPanelComponent {
   }
 
   getChildrenOf(person: Person): Person[] {
-    return [...person.children];
+    return person.children;
   }
 
   getCousins(person: Person): Person[] {
