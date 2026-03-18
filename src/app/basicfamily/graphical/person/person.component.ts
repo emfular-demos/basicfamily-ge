@@ -1,10 +1,14 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Person} from "../../core/Person";
-import {DraggableComponent, Dragger, SVGAccessService} from "ngx-svg-graphics";
+import {ArrowBetweenBoxesComponent, DraggableComponent, Dragger, SVGAccessService} from "ngx-svg-graphics";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: '[person]',
-  imports: [],
+  imports: [
+    ArrowBetweenBoxesComponent,
+    NgIf
+  ],
   templateUrl: './person.component.svg',
   styleUrl: './person.component.css'
 })

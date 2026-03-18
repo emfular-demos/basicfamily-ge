@@ -17,4 +17,17 @@
             fill="black">
         {{person.name}}
     </text>
+
+    <g arrow-between-boxes *ngIf="person.father"
+    [start]="person.position"
+    [end]="person.father.position"
+       style="stroke:#6699CC; stroke-width: 3px"
+    >
+    </g>
+    <g arrow-between-boxes *ngIf="person.mother"
+       [start]="person.position"
+       [end]="person.mother.position"
+       style="stroke:#CC66CC; stroke-width: 3px"
+    >
+    </g>
 </svg:g>
