@@ -6,6 +6,7 @@ import { BasicfamilyHistoryService } from './Basicfamily-history.service';
 import { Family } from "../core/Family";
 import { Man } from "../core/Man";
 import { Woman } from "../core/Woman";
+import {ElkLayoutService} from "../graphical/elk-layouting.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,14 @@ export class BasicfamilyService extends ModelService<Family> {
   constructor(
     historyService: BasicfamilyHistoryService,
     ioService: IoService,
-	) {
+	layoutingService: ElkLayoutService
+  ) {
     super(historyService, ioService, Family);
+  }
+
+  async autoLayout() {
+	  await this.layoutingService.autoLayout(this.model.members);
+	  this.saveCurrentState()
   }
 
   createMan () {
