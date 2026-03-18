@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import ELK from 'elkjs/lib/elk.bundled.js';
 import {Person} from "../core/Person";
-import {PositionHelper} from "ngx-svg-graphics";
+import {PositionHelper, SVGAccessService} from "ngx-svg-graphics";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class ElkLayoutService {
 
   private elk = new ELK();
 
-  constructor() {}
+  constructor(private svgAccessService: SVGAccessService,) {}
 
   /**
    * Auto-layout all persons in the family.
@@ -77,13 +77,16 @@ export class ElkLayoutService {
       const person = persons.find(p => p.$gId === child.id);
       if (!person) continue;
 
-      // IMMUTABLE update — triggers arrow recomputation
+      person.position.x = child.x
+      person.position.y = child.y
+      /*
       person.position = PositionHelper.newBoundingBox(
           child.x,
           child.y,
           person.position.w,
           person.position.h
-      );
+      );*/
+      this.svgAccessService.notifyPositionChange(person.$gId)
     }
   }
 }
