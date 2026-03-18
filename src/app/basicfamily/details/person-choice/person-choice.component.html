@@ -1,0 +1,12 @@
+<model-canvas
+        [svgwidth]="svgwidth"
+        [svgheigth]="svgheigth"
+>
+    <svg:g canvas>
+        <g family
+           [family]="modelService.model"
+           (chosePerson)="choosePerson.emit($event)"
+        >
+        </g>
+    </svg:g>
+</model-canvas>
