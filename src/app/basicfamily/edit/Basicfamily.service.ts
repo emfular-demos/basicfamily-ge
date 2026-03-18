@@ -7,6 +7,7 @@ import { Family } from "../core/Family";
 import { Man } from "../core/Man";
 import { Woman } from "../core/Woman";
 import {ElkLayoutService} from "../graphical/elk-layouting.service";
+import {Person} from "../core/Person";
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,14 @@ export class BasicfamilyService extends ModelService<Family> {
 	  this.model.members.push(woman);
 	  this.saveCurrentState();
 	  return woman;
+  }
+
+  connectChildAndMother(child: Person, mother: Person) {
+
+  }
+
+  connectChildAndFather(child: Person, father: Person) {
+
   }
 
 }

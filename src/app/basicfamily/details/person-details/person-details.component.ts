@@ -1,17 +1,16 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input,} from '@angular/core';
 import {Person} from "../../core/Person";
 import {FormsModule} from "@angular/forms";
-import {ContainerDetailsComponent} from "ngx-emfular-integration";
 import {BasicfamilyService} from "../../edit/Basicfamily.service";
 import {PersonDetailsService} from "../person-details.service";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-person-details',
   imports: [
     FormsModule,
-    ContainerDetailsComponent,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './person-details.component.html',
   styleUrl: './person-details.component.css'
@@ -23,6 +22,28 @@ export class PersonDetailsComponent {
       public modelService: BasicfamilyService,
       public detailsService: PersonDetailsService,
       ) {}
+
+  chooseMother() {
+    this.detailsService
+        .openModelChoice()
+        .subscribe(chosen => {
+          if (!chosen) return; // user cancelled
+          else {
+            this.modelService.connectChildAndMother(this.person, chosen);
+          }
+        });
+  }
+
+  chooseFather() {
+    this.detailsService
+        .openModelChoice()
+        .subscribe(chosen => {
+          if (!chosen) return; // user cancelled
+          else {
+            this.modelService.connectChildAndFather(this.person, chosen);
+          }
+        });
+  }
 
   addChild() {
 
