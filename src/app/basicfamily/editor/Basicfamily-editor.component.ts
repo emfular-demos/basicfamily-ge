@@ -35,16 +35,8 @@ export class BasicfamilyEditorComponent{
   ) {
     this.sidebarButtons = [
       {
-        label: "Family",
-        action: () => {
-          const res = this.modelService.createFamily()
-          if(res){
-            this.treeDetailsService.openDetails(res, this.modelService)
-          }
-        }
-      },
-{
         label: "Man",
+        icon: "assets/Man.gif",
         action: () => {
           const res = this.modelService.createMan()
           if(res){
@@ -52,8 +44,9 @@ export class BasicfamilyEditorComponent{
           }
         }
       },
-{
+      {
         label: "Woman",
+        icon: "assets/Woman.gif",
         action: () => {
           const res = this.modelService.createWoman()
           if(res){

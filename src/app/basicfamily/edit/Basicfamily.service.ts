@@ -19,10 +19,6 @@ export class BasicfamilyService extends ModelService<Family> {
     super(historyService, ioService, Family);
   }
 
-	createFamily () {
-		return new Family()
-	}
-
 	createMan () {
 		return new Man()
 	}
