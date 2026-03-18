@@ -3,13 +3,12 @@ import {Person} from "../../core/Person";
 import {FormsModule} from "@angular/forms";
 import {BasicfamilyService} from "../../edit/Basicfamily.service";
 import {PersonDetailsService} from "../person-details.service";
-import {NgForOf, NgIf} from "@angular/common";
+import { NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-person-details',
   imports: [
     FormsModule,
-    NgForOf,
     NgIf
   ],
   templateUrl: './person-details.component.html',
@@ -51,16 +50,6 @@ export class PersonDetailsComponent {
 
   removeFather() {
     this.modelService.removeFather(this.person)
-  }
-
-  addChild() {
-
-  }
-  removeChild(child: Person) {
-
-  }
-  openDetails(person: Person) {
-    this.detailsService.openDetails(person);
   }
 
 }
