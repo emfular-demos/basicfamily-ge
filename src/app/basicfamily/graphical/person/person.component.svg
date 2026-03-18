@@ -1,5 +1,6 @@
 <svg:g>
     <g [attr.transform]="'translate('+ (person.position.x) + ', ' + person.position.y +')'"
+       [id]="person.$gId"
        (mousedown)="startDrag($event)"
        (mousemove)="drag($event)"
        (mouseup)="endDrag($event)"
@@ -20,15 +21,19 @@
     </text>
     </g>
 
-    <g arrow-between-boxes *ngIf="person.father"
-    [start]="person.position"
-    [end]="person.father.position"
+    <g arrowElems *ngIf="person.father"
+       [startGID]="person.$gId"
+       [startSuffix]="''"
+       [endGID]="person.father.$gId"
+       [endSuffix]="''"
        style="stroke:#6699CC; stroke-width: 3px; marker-end: url(#POINTER);"
     >
     </g>
-    <g arrow-between-boxes *ngIf="person.mother"
-       [start]="person.position"
-       [end]="person.mother.position"
+    <g arrowElems *ngIf="person.mother"
+       [startGID]="person.$gId"
+       [startSuffix]="''"
+       [endGID]="person.mother.$gId"
+       [endSuffix]="''"
        style="stroke:#CC66CC; stroke-width: 3px; marker-end: url(#POINTER);"
     >
     </g>

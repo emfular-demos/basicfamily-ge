@@ -21,7 +21,7 @@
     "emfular": "10.1.0",
     "ngx-emfular-helper": "^1.0.0",
     "ngx-emfular-integration": "^0.4.1",
-    "ngx-svg-graphics": "^3.0.1",
+    "ngx-svg-graphics": "^3.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
