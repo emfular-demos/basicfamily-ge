@@ -1,4 +1,5 @@
 <svg:g>
+    <g svg-markers></g>
     <g person
     *ngFor="let person of family.members"
     [person] = "person"

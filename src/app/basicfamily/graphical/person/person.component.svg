@@ -23,13 +23,13 @@
     <g arrow-between-boxes *ngIf="person.father"
     [start]="person.position"
     [end]="person.father.position"
-       style="stroke:#6699CC; stroke-width: 3px"
+       style="stroke:#6699CC; stroke-width: 3px; marker-end: url(#POINTER);"
     >
     </g>
     <g arrow-between-boxes *ngIf="person.mother"
        [start]="person.position"
        [end]="person.mother.position"
-       style="stroke:#CC66CC; stroke-width: 3px"
+       style="stroke:#CC66CC; stroke-width: 3px; marker-end: url(#POINTER);"
     >
     </g>
 </svg:g>
