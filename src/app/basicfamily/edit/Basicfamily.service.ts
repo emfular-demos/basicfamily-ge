@@ -16,7 +16,7 @@ export class BasicfamilyService extends ModelService<Family> {
   constructor(
     historyService: BasicfamilyHistoryService,
     ioService: IoService,
-	layoutingService: ElkLayoutService
+	private layoutingService: ElkLayoutService
   ) {
     super(historyService, ioService, Family);
   }

@@ -26,7 +26,6 @@ export class BasicfamilyEditorComponent{
 
   svgwidth = 1500;
   svgheigth = 1000;
-  initialBBox : BoundingBox = {x: this.svgwidth/2, y: 20, w: 200, h: 25}
   sidebarButtons: Array<EditButtonDef> | null = null;
 
   constructor(
@@ -34,6 +33,10 @@ export class BasicfamilyEditorComponent{
     public modelService: BasicfamilyService,
   ) {
     this.sidebarButtons = [
+      {
+        label: "Refresh Layout",
+        action: () => {this.modelService.autoLayout()}
+      },
       {
         label: "Man",
         icon: "assets/Man.gif",
