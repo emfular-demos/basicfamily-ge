@@ -1,15 +1,14 @@
 import {Component} from '@angular/core';
 import {
-  TreeModelDetailsService,
   EditButtonDef,
   ModelEditingBarComponent,
   BasicEditorComponent,
 } from "ngx-emfular-integration";
-import { Referencable} from "emfular";
 
 import { BasicfamilyService } from "../edit/Basicfamily.service";
-import { Family } from "../core/Family";
 import {FamilyComponent} from "../graphical/family/family.component";
+import {PersonDetailsService} from "../details/person-details.service";
+import {Person} from "../core/Person";
 
 @Component({
   selector: 'Basicfamily-editor',
@@ -28,7 +27,7 @@ export class BasicfamilyEditorComponent{
   sidebarButtons: Array<EditButtonDef> | null = null;
 
   constructor(
-    public treeDetailsService: TreeModelDetailsService<Family>,
+    public personDetailsService: PersonDetailsService,
     public modelService: BasicfamilyService,
   ) {
     this.sidebarButtons = [
@@ -42,7 +41,7 @@ export class BasicfamilyEditorComponent{
         action: () => {
           const res = this.modelService.createMan()
           if(res){
-            this.treeDetailsService.openDetails(res, this.modelService)
+            this.personDetailsService.openDetails(res)
           }
         }
       },
@@ -52,15 +51,15 @@ export class BasicfamilyEditorComponent{
         action: () => {
           const res = this.modelService.createWoman()
           if(res){
-            this.treeDetailsService.openDetails(res, this.modelService)
+            this.personDetailsService.openDetails(res)
           }
         }
       }
     ]
   }
 
-  choose(element: Referencable<any>) {
-    this.treeDetailsService.openDetails(element, this.modelService)
+  choose(element: Person) {
+    this.personDetailsService.openDetails(element)
   }
 
 }
