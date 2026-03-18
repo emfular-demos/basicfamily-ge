@@ -20,14 +20,18 @@ export class BasicfamilyService extends ModelService<Family> {
   }
 
   createMan () {
+	  const index = this.model.members.filter(p => !p.isWoman).length;
 	  const man = new Man();
+	  man.name = 'man'+index
 	  this.model.members.push(man);
 	  this.saveCurrentState();
 	  return man;
   }
 
   createWoman () {
+	  const index = this.model.members.filter(p => !p.isWoman).length;
 	  const woman = new Woman();
+	  woman.name = 'woman'+index
 	  this.model.members.push(woman);
 	  this.saveCurrentState();
 	  return woman;
