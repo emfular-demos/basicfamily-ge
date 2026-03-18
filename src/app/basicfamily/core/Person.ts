@@ -6,9 +6,9 @@ import { basicfamilyMeta, PersonRefs } from './_meta_';
 import { Referencable } from 'emfular';
 
 @eClass(basicfamilyMeta, "Person")
-export class Person extends Referencable<any>  {
+export abstract class Person extends Referencable<any>  {
 
-  constructor() {
+  protected constructor() {
     super();
   }
 
@@ -22,12 +22,13 @@ export class Person extends Referencable<any>  {
   declare parents: ModelList<Person>;
 
   get mother(): Woman|undefined {
-		throw new Error('Method not implemented.'); //TODO
+    return this.parents.find(parent => parent.isWoman);
   }
-
 
   get father(): Man|undefined {
-		throw new Error('Method not implemented.'); //TODO
+	return this.parents.find(parent => !parent.isWoman);
   }
+
+  abstract get isWoman(): boolean
 
 }

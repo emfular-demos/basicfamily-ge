@@ -9,7 +9,8 @@ export class Man extends Person  {
     super();
   }
 
-
-
+  get isWoman(): boolean {
+    return false;
+  }
 
 }
