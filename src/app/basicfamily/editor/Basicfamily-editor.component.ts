@@ -5,7 +5,6 @@ import {
   ModelEditingBarComponent,
   BasicEditorComponent,
 } from "ngx-emfular-integration";
-import { BoundingBox } from 'ngx-svg-graphics';
 import { Referencable} from "emfular";
 
 import { BasicfamilyService } from "../edit/Basicfamily.service";

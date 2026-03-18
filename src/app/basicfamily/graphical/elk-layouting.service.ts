@@ -21,9 +21,7 @@ export class ElkLayoutService {
    */
   async autoLayout(persons: Person[]): Promise<void> {
     const elkGraph = this.buildElkGraph(persons);
-    console.log('ELK GRAPH', JSON.stringify(elkGraph, null, 2));
     const result = await this.elk.layout(elkGraph);
-    console.log("ELK RESULT", result);
     this.applyElkLayout(result, persons);
   }
 
@@ -33,7 +31,7 @@ export class ElkLayoutService {
   private buildElkGraph(persons: Person[]) {
     const children = persons.map(p => ({
       id: p.$gId,
-      width: p.position.w,
+      width: p.position.w+50,
       height: p.position.h
     }));
 
