@@ -4,20 +4,20 @@ import {
   EditButtonDef,
   ModelEditingBarComponent,
   BasicEditorComponent,
-  ReferencableBoxComponent
 } from "ngx-emfular-integration";
 import { BoundingBox } from 'ngx-svg-graphics';
 import { Referencable} from "emfular";
 
 import { BasicfamilyService } from "../edit/Basicfamily.service";
 import { Family } from "../core/Family";
+import {FamilyComponent} from "../graphical/family/family.component";
 
 @Component({
   selector: 'Basicfamily-editor',
   imports: [
     ModelEditingBarComponent,
     BasicEditorComponent,
-    ReferencableBoxComponent
+    FamilyComponent
   ],
   templateUrl: './Basicfamily-editor.component.html',
   styleUrl: './Basicfamily-editor.component.css'
