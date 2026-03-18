@@ -34,6 +34,10 @@ export class PersonDetailsComponent {
         });
   }
 
+  removeMother() {
+    this.modelService.removeMother(this.person)
+  }
+
   chooseFather() {
     this.detailsService
         .openModelChoice()
@@ -43,6 +47,10 @@ export class PersonDetailsComponent {
             this.modelService.connectChildAndFather(this.person, chosen);
           }
         });
+  }
+
+  removeFather() {
+    this.modelService.removeFather(this.person)
   }
 
   addChild() {

@@ -15,6 +15,8 @@
     </div>
     <div class="ref-info" *ngIf="person.mother">
         <span class="ref-label">{{ person.mother.name }}</span>
+        <button (click)="removeMother()">Remove Mother</button>
+
     </div>
     <button (click)="chooseMother()">
         Set Mother
@@ -27,6 +29,7 @@
     </div>
     <div class="ref-info" *ngIf="person.father">
         <span class="ref-label">{{ person.father.name }}</span>
+        <button (click)="removeFather()">Remove Father</button>
     </div>
     <button (click)="chooseFather()">
         Set Father

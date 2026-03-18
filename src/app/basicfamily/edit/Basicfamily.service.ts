@@ -46,11 +46,43 @@ export class BasicfamilyService extends ModelService<Family> {
   }
 
   connectChildAndMother(child: Person, mother: Person) {
+	if(mother.isWoman){
+		const formerMother = child.mother
+		if(formerMother == mother) return;
+		if(formerMother) {
+			formerMother.children.remove(child)
+		}
+		child.parents.push(mother);
+		this.saveCurrentState();
+	}
+  }
 
+  removeMother(child: Person) {
+	  const mother = child.mother
+	  if( mother ) {
+		  child.parents.remove(mother);
+		  this.saveCurrentState()
+	  }
   }
 
   connectChildAndFather(child: Person, father: Person) {
+	  if(!father.isWoman){
+		  const formerFather = child.father
+		  if(formerFather == father) return;
+		  if(formerFather) {
+			  formerFather.children.remove(child)
+		  }
+		  child.parents.push(father);
+		  this.saveCurrentState();
+	  }
+  }
 
+  removeFather(child: Person) {
+	  const father = child.father
+	  if( father ) {
+		  child.parents.remove(father);
+		  this.saveCurrentState()
+	  }
   }
 
 }
