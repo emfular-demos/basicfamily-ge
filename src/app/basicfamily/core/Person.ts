@@ -14,7 +14,7 @@ export abstract class Person extends Referencable<any>  implements Positionable 
   }
 
   @attribute()
-  position: BoundingBox = PositionHelper.newBoundingBox(0,0, 60, 32);
+  position: BoundingBox = PositionHelper.newBoundingBox(0,0, 32, 32);
 
   @attribute()
   name?: string;
