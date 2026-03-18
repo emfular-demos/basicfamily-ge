@@ -15,16 +15,22 @@ export class BasicfamilyService extends ModelService<Family> {
   constructor(
     historyService: BasicfamilyHistoryService,
     ioService: IoService,
-) {
+	) {
     super(historyService, ioService, Family);
   }
 
-	createMan () {
-		return new Man()
-	}
+  createMan () {
+	  const man = new Man();
+	  this.model.members.push(man);
+	  this.saveCurrentState();
+	  return man;
+  }
 
-	createWoman () {
-		return new Woman()
-	}
+  createWoman () {
+	  const woman = new Woman();
+	  this.model.members.push(woman);
+	  this.saveCurrentState();
+	  return woman;
+  }
 
 }
