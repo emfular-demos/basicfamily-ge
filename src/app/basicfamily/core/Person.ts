@@ -4,13 +4,17 @@ import type { Man } from './Man';
 import type { ModelList } from 'emfular';
 import { basicfamilyMeta, PersonRefs } from './_meta_';
 import { Referencable } from 'emfular';
+import {BoundingBox, Positionable, PositionHelper} from "ngx-svg-graphics";
 
 @eClass(basicfamilyMeta, "Person")
-export abstract class Person extends Referencable<any>  {
+export abstract class Person extends Referencable<any>  implements Positionable {
 
   protected constructor() {
     super();
   }
+
+  @attribute()
+  position: BoundingBox = PositionHelper.newBoundingBox(0,0, 60, 32);
 
   @attribute()
   name?: string;

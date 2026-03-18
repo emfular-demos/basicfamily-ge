@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Person} from "../../core/Person";
+import {DraggableComponent, Dragger, SVGAccessService} from "ngx-svg-graphics";
 
 @Component({
   selector: '[person]',
@@ -7,7 +8,23 @@ import {Person} from "../../core/Person";
   templateUrl: './person.component.svg',
   styleUrl: './person.component.css'
 })
-export class PersonComponent {
+export class PersonComponent extends DraggableComponent<Person> implements OnInit {
   @Input() person!: Person;
+
+  constructor(
+      svgAccessService: SVGAccessService,
+  ) {
+    super(svgAccessService);
+  }
+
+  ngOnInit() {
+    this.elem = this.person;
+    this.elemDragger = new Dragger(this.elem);
+  }
+
+  clickPerson() {
+    //todo once we have the details service
+    console.log("Clicked: "+this.person.name);
+  }
 
 }
