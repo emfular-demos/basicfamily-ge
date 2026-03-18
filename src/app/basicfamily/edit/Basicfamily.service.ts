@@ -36,7 +36,7 @@ export class BasicfamilyService extends ModelService<Family> {
   }
 
   createWoman () {
-	  const index = this.model.members.filter(p => !p.isWoman).length;
+	  const index = this.model.members.filter(p => p.isWoman).length;
 	  const woman = new Woman();
 	  woman.name = 'woman'+index
 	  this.model.members.push(woman);
