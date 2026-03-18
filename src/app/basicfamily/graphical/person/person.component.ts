@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Person} from "../../core/Person";
 import {DraggableComponent, Dragger, SVGAccessService} from "ngx-svg-graphics";
 
@@ -10,6 +10,7 @@ import {DraggableComponent, Dragger, SVGAccessService} from "ngx-svg-graphics";
 })
 export class PersonComponent extends DraggableComponent<Person> implements OnInit {
   @Input() person!: Person;
+  @Output() chosePerson = new EventEmitter<Person>();
 
   constructor(
       svgAccessService: SVGAccessService,
@@ -23,8 +24,9 @@ export class PersonComponent extends DraggableComponent<Person> implements OnIni
   }
 
   clickPerson() {
-    //todo once we have the details service
+    //todo change once we have the right details service
     console.log("Clicked: "+this.person.name);
+    this.chosePerson.emit(this.person);
   }
 
 }

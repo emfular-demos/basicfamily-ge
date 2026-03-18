@@ -2,6 +2,7 @@
     <g person
     *ngFor="let person of family.members"
     [person] = "person"
+       (chosePerson)="chosePerson.emit($event)"
     >
     </g>
 </svg:g>

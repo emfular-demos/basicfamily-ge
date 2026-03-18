@@ -12,7 +12,8 @@
   <!-- Default canvas content, needs svg namespace just like components -->
   <svg:g canvas>
     <g family
-       [family]="modelService.model">
+       [family]="modelService.model"
+    (chosePerson)="choose($event)">
     </g>
   </svg:g>
 </emfular-basic-editor>
