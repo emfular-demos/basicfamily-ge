@@ -1,0 +1,7 @@
+<svg:g>
+    <g person
+    *ngFor="let person of family.members"
+    [person] = "person"
+    >
+    </g>
+</svg:g>

@@ -1,0 +1,16 @@
+<svg:g>
+    <image
+            [attr.href]="person.isWoman?'assets/Woman.gif':'assets/Man.gif'"
+            x="0"
+            y="0"
+            width="32"
+            height="32">
+    </image>
+    <text
+            x="40"
+            y="20"
+            font-size="16"
+            fill="black">
+        {{person.name}}
+    </text>
+</svg:g>
