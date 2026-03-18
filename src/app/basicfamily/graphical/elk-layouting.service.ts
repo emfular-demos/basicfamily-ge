@@ -8,14 +8,7 @@ import {PositionHelper} from "ngx-svg-graphics";
 })
 export class ElkLayoutService {
 
-  private elk = new ELK({
-    workerFactory: () =>
-        ({
-          postMessage: () => {},
-          terminate: () => {}
-        } as unknown as Worker)
-  });
-
+  private elk = new ELK();
 
   constructor() {}
 
@@ -30,6 +23,7 @@ export class ElkLayoutService {
     const elkGraph = this.buildElkGraph(persons);
     console.log('ELK GRAPH', JSON.stringify(elkGraph, null, 2));
     const result = await this.elk.layout(elkGraph);
+    console.log("ELK RESULT", result);
     this.applyElkLayout(result, persons);
   }
 
