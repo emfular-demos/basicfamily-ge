@@ -1,1 +1,41 @@
-<p>person-details works!</p>
+<h1>Detail-Editor</h1>
+<div class="attribute-list">
+    <div class="attribute-row">
+        <label>Name</label>
+        <input
+                type="text"
+                [(ngModel)]="person.name"
+        />
+    </div>
+</div>
+<h3>Relationships</h3>
+<div class="reference-list">
+    <h4>Children</h4>
+
+    <button class="add-ref" (click)="addChild()">Add</button>
+
+    <div class="container-row"
+         *ngFor="let child of person.children">
+        <div class="ref-info">
+            <span class="ref-icon">🔗</span>
+            <span class="ref-type">{{child.isWoman?'Woman':'Man'}}</span>
+            <span class="ref-label">{{ child.name }}</span>
+        </div>
+
+        <div class="ref-actions">
+            <button (click)="openDetails(child)">Open</button>
+            <button (click)="removeChild(child)">Remove</button>
+        </div>
+    </div>
+
+    <container-details
+            *ngFor="let container of person.$treeChildren"
+            [container]="container"
+            [isTree]="true"
+            [modelService]="modelService"
+            [detailsService]="detailsService"
+    >
+    </container-details>
+</div>
+
+
