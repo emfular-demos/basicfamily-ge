@@ -10,7 +10,7 @@ import { BasicfamilyEditorComponent } from './basicfamily/editor/Basicfamily-edi
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'basicfamily-graphical-editor';
+  title = 'EMFular-editor for Basicfamily';
 
   constructor() {}
 }
