@@ -9,6 +9,7 @@ import { BasicfamilyService } from "../edit/Basicfamily.service";
 import {FamilyComponent} from "../graphical/family/family.component";
 import {PersonDetailsService} from "../details/person-details.service";
 import {Person} from "../core/Person";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'Basicfamily-editor',
@@ -29,10 +30,17 @@ export class BasicfamilyEditorComponent{
   constructor(
     public personDetailsService: PersonDetailsService,
     public modelService: BasicfamilyService,
+    public http: HttpClient,
   ) {
     this.sidebarButtons = [
       {
-        label: "Refresh Layout",
+        label: "Sample model",
+        action: () => {
+          this.loadExample()
+        }
+      },
+      {
+        label: "Auto- Layout",
         action: () => {this.modelService.autoLayout()}
       },
       {
@@ -61,5 +69,12 @@ export class BasicfamilyEditorComponent{
   choose(element: Person) {
     this.personDetailsService.openDetails(element)
   }
+
+  loadExample() {
+    this.http.get('assets/big-family-example.json').subscribe(json => {
+      this.modelService.loadFromJson(json);
+    });
+  }
+
 
 }

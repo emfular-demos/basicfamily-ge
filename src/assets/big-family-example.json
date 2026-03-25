@@ -1,0 +1,467 @@
+{
+  "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Family",
+  "members": [
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 537,
+        "y": 41,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Isa",
+      "children": [
+        {
+          "$ref": "//@members.5",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.2",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 403,
+        "y": 41,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Arthur",
+      "children": [
+        {
+          "$ref": "//@members.2",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.5",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 539,
+        "y": 138,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Clara",
+      "children": [
+        {
+          "$ref": "//@members.3",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.0",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.1",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 567,
+        "y": 252,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Sarah",
+      "children": [
+        {
+          "$ref": "//@members.16",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.2",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.4",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 640,
+        "y": 137,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Sam",
+      "children": [
+        {
+          "$ref": "//@members.3",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 393,
+        "y": 133,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Dean",
+      "children": [
+        {
+          "$ref": "//@members.8",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.6",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.10",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.9",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.0",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.1",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 445,
+        "y": 242,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Marc",
+      "children": [
+        {
+          "$ref": "//@members.11",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.13",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.5",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.7",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 274,
+        "y": 136,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Anna",
+      "children": [
+        {
+          "$ref": "//@members.6",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.8",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.10",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.9",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 360,
+        "y": 243,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Lara",
+      "parents": [
+        {
+          "$ref": "//@members.5",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.7",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 259,
+        "y": 244,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Mara",
+      "children": [
+        {
+          "$ref": "//@members.12",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.5",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.7",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 151,
+        "y": 244,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Laura",
+      "children": [
+        {
+          "$ref": "//@members.14",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.5",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        },
+        {
+          "$ref": "//@members.7",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 386,
+        "y": 340,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Theo",
+      "children": [
+        {
+          "$ref": "//@members.19",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.6",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 253,
+        "y": 330,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Mirco",
+      "children": [
+        {
+          "$ref": "//@members.17",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.9",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 487,
+        "y": 341,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Stela",
+      "children": [
+        {
+          "$ref": "//@members.18",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.20",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ],
+      "parents": [
+        {
+          "$ref": "//@members.6",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 145,
+        "y": 327,
+        "w": 32,
+        "h": 32
+      },
+      "name": "John",
+      "parents": [
+        {
+          "$ref": "//@members.10",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 657,
+        "y": 252,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Jim",
+      "children": [
+        {
+          "$ref": "//@members.16",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 597,
+        "y": 348,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Ben",
+      "parents": [
+        {
+          "$ref": "//@members.3",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        },
+        {
+          "$ref": "//@members.15",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 248,
+        "y": 419,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Karl",
+      "parents": [
+        {
+          "$ref": "//@members.12",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 471,
+        "y": 427,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Missy",
+      "parents": [
+        {
+          "$ref": "//@members.13",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman",
+      "position": {
+        "x": 371,
+        "y": 425,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Mira",
+      "parents": [
+        {
+          "$ref": "//@members.11",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man"
+        }
+      ]
+    },
+    {
+      "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Man",
+      "position": {
+        "x": 572,
+        "y": 429,
+        "w": 32,
+        "h": 32
+      },
+      "name": "Marcus",
+      "parents": [
+        {
+          "$ref": "//@members.13",
+          "eClass": "http://www.eclipse.org/sirius/sample/basicfamily#//Woman"
+        }
+      ]
+    }
+  ]
+}
