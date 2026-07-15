@@ -52,4 +52,9 @@ export class PersonDetailsComponent {
     this.modelService.removeFather(this.person)
   }
 
+  deleteMe() {
+      this.modelService.deletePerson(this.person)
+      //this.detailsService.closeDetails()
+  }
+
 }

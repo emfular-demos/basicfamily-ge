@@ -45,6 +45,11 @@ export class BasicfamilyService extends ModelService<Family> {
 	  return woman;
   }
 
+  deletePerson( person: Person) {
+	  person.destruct()
+	  this.saveCurrentState()
+  }
+
   connectChildAndMother(child: Person, mother: Person) {
 	if(mother.isWoman){
 		const formerMother = child.mother
