@@ -54,7 +54,7 @@ export class PersonDetailsComponent {
 
   deleteMe() {
       this.modelService.deletePerson(this.person)
-      //this.detailsService.closeDetails()
+      this.detailsService.closeDetails()
   }
 
 }

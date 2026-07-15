@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Overlay } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import {BasicfamilyService} from "../edit/Basicfamily.service";
 import {Person} from "../core/Person";
 import { ComponentPortal } from '@angular/cdk/portal';
@@ -12,13 +12,15 @@ import {PersonDetailsComponent} from "./person-details/person-details.component"
 })
 export class PersonDetailsService {
 
+  private overlayRef?: OverlayRef;
+
   constructor(
       private overlay: Overlay,
       private modelService: BasicfamilyService
   ) { }
 
   openDetails(elem: Person) {
-    const overlayRef = this.overlay.create(
+    this.overlayRef = this.overlay.create(
         { hasBackdrop: true,
           backdropClass: 'cdk-overlay-dark-backdrop',
           panelClass: 'basic-details-panel',
@@ -26,13 +28,18 @@ export class PersonDetailsService {
               .global() .centerHorizontally() .centerVertically()
         });
     const portal = new ComponentPortal(PersonDetailsComponent);
-    const ref = overlayRef.attach(portal);
+    const ref = this.overlayRef.attach(portal);
     ref.instance.person = elem;
     //ref.instance.modelService = this.modelService;
     //ref.instance.detailsService = this
-    overlayRef.backdropClick().subscribe(
-        () => overlayRef.dispose()
+    this.overlayRef.backdropClick().subscribe(
+        () => this.closeDetails()
     );
+  }
+
+  closeDetails() {
+    this.overlayRef?.dispose();
+    this.overlayRef = undefined;
   }
 
   openModelChoice(): Observable<Person> {
