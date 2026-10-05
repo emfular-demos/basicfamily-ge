@@ -4,6 +4,7 @@ import type { Man } from './Man';
 import type { ModelList } from 'emfular-core';
 import { basicfamilyMeta, PersonRefs } from './_meta_';
 import { Referencable } from 'emfular-core';
+import { Point2D } from 'ngx-emfular-diagram';
 
 @eClass(basicfamilyMeta, "Person")
 export abstract class Person extends Referencable<any>  {
@@ -15,19 +16,24 @@ export abstract class Person extends Referencable<any>  {
   @attribute()
   name?: string;
 
+  @attribute()
+  position: Point2D = {x:2, y:2};
+
   @reference(PersonRefs.children)
   declare children: ModelList<Person>;
 
   @reference(PersonRefs.parents)
   declare parents: ModelList<Person>;
 
-  get mother(): Woman|undefined {
-		throw new Error('Method not implemented.'); //TODO
-  }
 
+  get mother(): Woman|undefined {
+    return this.parents.find(parent => parent.isWoman);
+  }
 
   get father(): Man|undefined {
-		throw new Error('Method not implemented.'); //TODO
+    return this.parents.find(parent => !parent.isWoman);
   }
+
+  abstract get isWoman(): boolean
 
 }

@@ -1,0 +1,35 @@
+<svg:g>
+    <g [attr.transform]="'translate('+ (person.position.x) + ', ' + person.position.y +')'"
+       [id]="person.$gId"
+       [dragPosition]="person.position"
+       (elemReallyClicked)="clickPerson()">
+    <image
+            [attr.href]="person.isWoman?'assets/Woman.gif':'assets/Man.gif'"
+            x="0"
+            y="0"
+            width="32"
+            height="32">
+    </image>
+    <text
+            x="40"
+            y="20"
+            font-size="16"
+            fill="black">
+        {{person.name}}
+    </text>
+    </g>
+
+    <g arrow-elements *ngIf="person.mother"
+       [startGID]="person.$gId"
+       [endGID]="person.mother?.$gId"
+       [arrowStyle]="{color: '#CC66CC', strokeWidth: '3px', endPointer: 'POINTER'}"
+    >
+    </g>
+    <g arrow-elements *ngIf="person.father"
+       [startGID]="person.$gId"
+       [endGID]="person.father?.$gId"
+       [arrowStyle]="{color: '#6699CC', strokeWidth: '3px', endPointer: 'POINTER'}"
+    >
+    </g>
+
+</svg:g>

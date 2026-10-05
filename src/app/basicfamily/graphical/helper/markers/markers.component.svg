@@ -1,0 +1,13 @@
+<svg:defs>
+    <marker id="POINTER"
+            orient="auto"
+            markerWidth="4"
+            markerHeight="4"
+            refX="4"
+            refY="2"
+            markerUnits="strokeWidth">
+        <path d="M0,0 L4,2 L0,4 Z"
+              style="stroke:context-stroke; fill:context-stroke">
+        </path>
+    </marker>
+</svg:defs>
