@@ -18,5 +18,6 @@ import {MarkersComponent} from "../helper/markers/markers.component";
 export class FamilyComponent {
   @Input() family!: Family;
   @Output() chosePerson = new EventEmitter<Person>();
+  @Output() doubleClickPerson = new EventEmitter<Person>();
 
 }

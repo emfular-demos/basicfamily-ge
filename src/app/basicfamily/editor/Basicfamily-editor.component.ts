@@ -1,23 +1,26 @@
 import {Component} from '@angular/core';
+import {NgIf} from "@angular/common";
+
 import {
   ActionButtonDef,
   BasicEditorComponent,
-  GraphicalTreeDetailsService,
   ModelSpecificPaletteComponent,
 } from "ngx-emfular-integration";
-import { Referencable} from "emfular-core";
 
 import { BasicfamilyService } from "../edit/Basicfamily.service";
 import {FamilyComponent} from "../graphical/family/family.component";
 import {PersonDetailsService} from "../details/person-details.service";
 import {Person} from "../core/Person";
+import {PersonBottomPanelComponent} from "../details/person-bottom-panel/person-bottom-panel.component";
 
 @Component({
   selector: 'Basicfamily-editor',
   imports: [
-    ModelSpecificPaletteComponent,
     BasicEditorComponent,
-    FamilyComponent
+    FamilyComponent,
+    ModelSpecificPaletteComponent,
+    NgIf,
+    PersonBottomPanelComponent,
   ],
   templateUrl: './Basicfamily-editor.component.html',
   styleUrl: './Basicfamily-editor.component.css'
@@ -27,6 +30,7 @@ export class BasicfamilyEditorComponent{
   svgwidth = 1500;
   svgheigth = 500;
   sidebarButtons: ActionButtonDef[] = [];
+  selectedPersonForBottomView: Person | null = null;
 
   constructor(
     public personDetailsService: PersonDetailsService,
@@ -60,6 +64,14 @@ export class BasicfamilyEditorComponent{
 
   choose(element: Person) {
     this.personDetailsService.openDetails(element)
+  }
+
+  openBottomView(person: Person) {
+    this.selectedPersonForBottomView = person;
+  }
+
+  closeBottomView() {
+    this.selectedPersonForBottomView = null;
   }
 
 }
