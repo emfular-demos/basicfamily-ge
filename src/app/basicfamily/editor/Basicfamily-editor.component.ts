@@ -8,8 +8,9 @@ import {
 import { Referencable} from "emfular-core";
 
 import { BasicfamilyService } from "../edit/Basicfamily.service";
-import { Family } from "../core/Family";
 import {FamilyComponent} from "../graphical/family/family.component";
+import {PersonDetailsService} from "../details/person-details.service";
+import {Person} from "../core/Person";
 
 @Component({
   selector: 'Basicfamily-editor',
@@ -28,42 +29,37 @@ export class BasicfamilyEditorComponent{
   sidebarButtons: ActionButtonDef[] = [];
 
   constructor(
-    public treeDetailsService: GraphicalTreeDetailsService<Family>,
+    public personDetailsService: PersonDetailsService,
     public modelService: BasicfamilyService,
   ) {
     this.sidebarButtons = [
       {
-        label: "Family",
-        action: () => {
-          const res = this.modelService.createFamily()
-          if(res){
-            this.treeDetailsService.openDetails(res, this.modelService)
-          }
-        }
+        label: "Auto- Layout",
+        action: () => {this.modelService.autoLayout()}
       },
-{
+      {
         label: "Man",
         action: () => {
           const res = this.modelService.createMan()
           if(res){
-            this.treeDetailsService.openDetails(res, this.modelService)
+            this.personDetailsService.openDetails(res)
           }
         }
       },
-{
+      {
         label: "Woman",
         action: () => {
           const res = this.modelService.createWoman()
           if(res){
-            this.treeDetailsService.openDetails(res, this.modelService)
+            this.personDetailsService.openDetails(res)
           }
         }
       }
     ]
   }
 
-  choose(element: Referencable<any>) {
-    this.treeDetailsService.openDetails(element, this.modelService)
+  choose(element: Person) {
+    this.personDetailsService.openDetails(element)
   }
 
 }

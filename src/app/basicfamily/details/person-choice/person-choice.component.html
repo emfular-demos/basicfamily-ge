@@ -1,0 +1,11 @@
+<svg-canvas
+        [viewBox]="viewBox"
+>
+    <svg:g canvas>
+        <g family
+           [family]="modelService.model"
+           (chosePerson)="choosePerson.emit($event)"
+        >
+        </g>
+    </svg:g>
+</svg-canvas>

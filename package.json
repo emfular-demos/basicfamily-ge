@@ -18,6 +18,8 @@
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
 
+    "elkjs": "^0.8.2",
+
     "emfular-core": "^1.3.0",
     "ngx-emfular-diagram": "^2.0.2",
     "ngx-emfular-tool": "^1.1.1",

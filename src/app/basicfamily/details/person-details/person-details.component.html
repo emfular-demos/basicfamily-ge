@@ -1,0 +1,43 @@
+<h1>Detail-Editor</h1>
+<div class="attribute-list">
+    <div class="attribute-row">
+        <label>Name</label>
+        <input
+                type="text"
+                [(ngModel)]="person.name"
+        />
+    </div>
+</div>
+<div class="parent-choice">
+    <label>Mother</label>
+    <div *ngIf="!person.mother">
+        <span class="alert-ref">No Mother</span>
+    </div>
+    <div class="ref-info" *ngIf="person.mother">
+        <span class="ref-label">{{ person.mother.name }}</span>
+        <button (click)="removeMother()">Remove Mother</button>
+
+    </div>
+    <button (click)="chooseMother()">
+        Set Mother
+    </button>
+</div>
+<div class="parent-choice">
+    <label>Father</label>
+    <div *ngIf="!person.father">
+        <span class="alert-ref">No Father</span>
+    </div>
+    <div class="ref-info" *ngIf="person.father">
+        <span class="ref-label">{{ person.father.name }}</span>
+        <button (click)="removeFather()">Remove Father</button>
+    </div>
+    <button (click)="chooseFather()">
+        Set Father
+    </button>
+</div>
+<button (click)="deleteMe()">
+    Delete me
+</button>
+
+
+
