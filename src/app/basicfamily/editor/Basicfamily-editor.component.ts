@@ -1,26 +1,27 @@
 import {Component} from '@angular/core';
+import {NgIf} from "@angular/common";
+
 import {
-  EditButtonDef,
-  ModelEditingBarComponent,
+  ActionButtonDef,
   BasicEditorComponent,
+  ModelSpecificPaletteComponent,
 } from "ngx-emfular-integration";
 
 import { BasicfamilyService } from "../edit/Basicfamily.service";
 import {FamilyComponent} from "../graphical/family/family.component";
 import {PersonDetailsService} from "../details/person-details.service";
 import {Person} from "../core/Person";
-import {HttpClient} from "@angular/common/http";
 import {PersonBottomPanelComponent} from "../details/person-bottom-panel/person-bottom-panel.component";
-import {NgIf} from "@angular/common";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'Basicfamily-editor',
   imports: [
-    ModelEditingBarComponent,
     BasicEditorComponent,
     FamilyComponent,
+    ModelSpecificPaletteComponent,
+    NgIf,
     PersonBottomPanelComponent,
-    NgIf
   ],
   templateUrl: './Basicfamily-editor.component.html',
   styleUrl: './Basicfamily-editor.component.css'
@@ -28,14 +29,14 @@ import {NgIf} from "@angular/common";
 export class BasicfamilyEditorComponent{
 
   svgwidth = 1500;
-  svgheigth = 1000;
-  sidebarButtons: Array<EditButtonDef> | null = null;
+  svgheigth = 500;
+  sidebarButtons: ActionButtonDef[] = [];
   selectedPersonForBottomView: Person | null = null;
 
   constructor(
     public personDetailsService: PersonDetailsService,
     public modelService: BasicfamilyService,
-    public http: HttpClient,
+    private http: HttpClient,
   ) {
     this.sidebarButtons = [
       {
@@ -50,7 +51,6 @@ export class BasicfamilyEditorComponent{
       },
       {
         label: "Man",
-        icon: "assets/Man.gif",
         action: () => {
           const res = this.modelService.createMan()
           if(res){
@@ -60,7 +60,6 @@ export class BasicfamilyEditorComponent{
       },
       {
         label: "Woman",
-        icon: "assets/Woman.gif",
         action: () => {
           const res = this.modelService.createWoman()
           if(res){
@@ -88,6 +87,5 @@ export class BasicfamilyEditorComponent{
   closeBottomView() {
     this.selectedPersonForBottomView = null;
   }
-
 
 }

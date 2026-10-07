@@ -1,4 +1,4 @@
-import { eClass } from 'emfular'
+import { eClass } from 'emfular-core'
 import { basicfamilyMeta } from './_meta_';
 import { Person } from './Person';
 
@@ -12,5 +12,6 @@ export class Woman extends Person  {
   get isWoman(): boolean {
     return true;
   }
+
 
 }

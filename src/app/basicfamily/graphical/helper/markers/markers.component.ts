@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: '[svg-markers]',
   imports: [],
   templateUrl: './markers.component.svg',
-  styleUrl: './markers.component.css'
+  styles: []
 })
 export class MarkersComponent {
 

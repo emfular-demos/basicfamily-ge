@@ -2,21 +2,20 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FamilyComponent} from "../../graphical/family/family.component";
 import {BasicfamilyService} from "../../edit/Basicfamily.service";
 import {Person} from "../../core/Person";
-import {ModelCanvasComponent} from "ngx-emfular-integration";
+import {SvgCanvasComponent} from "ngx-emfular-diagram";
 
 @Component({
   selector: 'app-person-choice',
   imports: [
     FamilyComponent,
-    ModelCanvasComponent
+    SvgCanvasComponent
   ],
   templateUrl: './person-choice.component.html',
-  styleUrl: './person-choice.component.css'
+  styles: []
 })
 export class PersonChoiceComponent {
 
-  svgwidth = 1500;
-  svgheigth = 1000;
+  viewBox = '0 0 600 600';
 
   @Input() modelService!: BasicfamilyService
   @Output() choosePerson: EventEmitter<Person> = new EventEmitter();

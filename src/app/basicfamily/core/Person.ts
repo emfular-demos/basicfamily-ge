@@ -1,23 +1,23 @@
-import { eClass, reference, attribute } from 'emfular'
+import { eClass, reference, attribute } from 'emfular-core'
 import type { Woman } from './Woman';
 import type { Man } from './Man';
-import type { ModelList } from 'emfular';
+import type { ModelList } from 'emfular-core';
 import { basicfamilyMeta, PersonRefs } from './_meta_';
-import { Referencable } from 'emfular';
-import {BoundingBox, Positionable, PositionHelper} from "ngx-svg-graphics";
+import { Referencable } from 'emfular-core';
+import { Point2D } from 'ngx-emfular-diagram';
 
 @eClass(basicfamilyMeta, "Person")
-export abstract class Person extends Referencable<any>  implements Positionable {
+export abstract class Person extends Referencable<any>  {
 
-  protected constructor() {
+  constructor() {
     super();
   }
 
   @attribute()
-  position: BoundingBox = PositionHelper.newBoundingBox(0,0, 32, 32);
+  name?: string;
 
   @attribute()
-  name?: string;
+  position: Point2D = {x:2, y:2};
 
   @reference(PersonRefs.children)
   declare children: ModelList<Person>;
@@ -25,12 +25,13 @@ export abstract class Person extends Referencable<any>  implements Positionable 
   @reference(PersonRefs.parents)
   declare parents: ModelList<Person>;
 
+
   get mother(): Woman|undefined {
     return this.parents.find(parent => parent.isWoman);
   }
 
   get father(): Man|undefined {
-	return this.parents.find(parent => !parent.isWoman);
+    return this.parents.find(parent => !parent.isWoman);
   }
 
   abstract get isWoman(): boolean

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import ELK from 'elkjs/lib/elk.bundled.js';
 import {Person} from "../core/Person";
-import {PositionHelper, SVGAccessService} from "ngx-svg-graphics";
+import {SvgPositionChangeService} from "ngx-emfular-diagram";
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,10 @@ export class ElkLayoutService {
 
   private elk = new ELK();
 
-  constructor(private svgAccessService: SVGAccessService,) {}
+  constructor(private svgAccessService: SvgPositionChangeService,) {}
 
   /**
-   * Auto-layout all persons in the family.
-   * This will:
-   *  1. Build the ELK graph
-   *  2. Run the layout
-   *  3. Replace each person's BoundingBox (immutable update)
+   * Auto-layout all persons in the family, layer by layer
    */
   async autoLayout(persons: Person[]): Promise<void> {
     const elkGraph = this.buildElkGraph(persons);
@@ -25,14 +21,11 @@ export class ElkLayoutService {
     this.applyElkLayout(result, persons);
   }
 
-  /**
-   * Build the ELK graph from the current family model.
-   */
   private buildElkGraph(persons: Person[]) {
     const children = persons.map(p => ({
       id: p.$gId,
-      width: p.position.w+50,
-      height: p.position.h
+      width: 82,
+      height: 32
     }));
 
     const edges = persons.flatMap(p => {
@@ -59,7 +52,7 @@ export class ElkLayoutService {
       id: 'root',
       layoutOptions: {
         'elk.algorithm': 'layered',
-        'elk.direction': 'DOWN',
+        'elk.direction': 'UP',
         'elk.layered.spacing.nodeNodeBetweenLayers': '50',
         'elk.spacing.nodeNode': '40'
       },
@@ -68,10 +61,6 @@ export class ElkLayoutService {
     };
   }
 
-  /**
-   * Apply the ELK layout back to the persons.
-   * This replaces each BoundingBox immutably so Angular updates arrows.
-   */
   private applyElkLayout(result: any, persons: Person[]): void {
     for (const child of result.children) {
       const person = persons.find(p => p.$gId === child.id);
@@ -79,13 +68,6 @@ export class ElkLayoutService {
 
       person.position.x = child.x
       person.position.y = child.y
-      /*
-      person.position = PositionHelper.newBoundingBox(
-          child.x,
-          child.y,
-          person.position.w,
-          person.position.h
-      );*/
       this.svgAccessService.notifyPositionChange(person.$gId)
     }
   }

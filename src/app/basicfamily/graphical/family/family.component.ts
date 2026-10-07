@@ -13,7 +13,7 @@ import {MarkersComponent} from "../helper/markers/markers.component";
     MarkersComponent
   ],
   templateUrl: './family.component.svg',
-  styleUrl: './family.component.css'
+  styles: []
 })
 export class FamilyComponent {
   @Input() family!: Family;

@@ -1,4 +1,5 @@
-import { ModelDefinition, ReferenceMeta } from "emfular";
+import { ModelDefinition, ReferenceMeta } from "emfular-core";
+
 
 
 export const PersonRefs = {
@@ -15,12 +16,12 @@ export const PersonRefs = {
 	mother: {
 		target: "Woman",
 		max: 1,
-		//todo: derived
+		//derived
 	} satisfies ReferenceMeta,
 	father: {
 		target: "Man",
 		max: 1,
-		//todo: derived
+		//derived
 	} satisfies ReferenceMeta
 };
 export const FamilyRefs = {

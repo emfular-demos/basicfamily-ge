@@ -1,10 +1,8 @@
 <svg:g>
     <g [attr.transform]="'translate('+ (person.position.x) + ', ' + person.position.y +')'"
        [id]="person.$gId"
-       (mousedown)="startDrag($event)"
-       (mousemove)="drag($event)"
-       (mouseup)="endDrag($event)"
-       (click)="clickPerson()">
+       [dragPosition]="person.position"
+       (elemReallyClicked)="clickPerson()">
     <image
             [attr.href]="person.isWoman?'assets/Woman.gif':'assets/Man.gif'"
             x="0"
@@ -21,20 +19,17 @@
     </text>
     </g>
 
-    <g arrowElems *ngIf="person.father"
+    <g arrow-elements *ngIf="person.mother"
        [startGID]="person.$gId"
-       [startSuffix]="''"
-       [endGID]="person.father.$gId"
-       [endSuffix]="''"
-       style="stroke:#6699CC; stroke-width: 3px; marker-end: url(#POINTER);"
+       [endGID]="person.mother?.$gId"
+       [arrowStyle]="{color: '#CC66CC', strokeWidth: '3px', endPointer: 'POINTER'}"
     >
     </g>
-    <g arrowElems *ngIf="person.mother"
+    <g arrow-elements *ngIf="person.father"
        [startGID]="person.$gId"
-       [startSuffix]="''"
-       [endGID]="person.mother.$gId"
-       [endSuffix]="''"
-       style="stroke:#CC66CC; stroke-width: 3px; marker-end: url(#POINTER);"
+       [endGID]="person.father?.$gId"
+       [arrowStyle]="{color: '#6699CC', strokeWidth: '3px', endPointer: 'POINTER'}"
     >
     </g>
+
 </svg:g>

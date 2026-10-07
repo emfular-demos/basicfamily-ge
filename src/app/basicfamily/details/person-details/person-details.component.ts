@@ -1,4 +1,4 @@
-import {Component, Input,} from '@angular/core';
+import {Component, EventEmitter, Input, Output,} from '@angular/core';
 import {Person} from "../../core/Person";
 import {FormsModule} from "@angular/forms";
 import {BasicfamilyService} from "../../edit/Basicfamily.service";
@@ -16,6 +16,7 @@ import { NgIf} from "@angular/common";
 })
 export class PersonDetailsComponent {
   @Input() person!: Person
+  @Output() closeMe: EventEmitter<void> = new EventEmitter()
 
   constructor(
       public modelService: BasicfamilyService,
@@ -24,7 +25,7 @@ export class PersonDetailsComponent {
 
   chooseMother() {
     this.detailsService
-        .openModelChoice()
+        .openPersonChoice()
         .subscribe(chosen => {
           if (!chosen) return; // user cancelled
           else {
@@ -39,7 +40,7 @@ export class PersonDetailsComponent {
 
   chooseFather() {
     this.detailsService
-        .openModelChoice()
+        .openPersonChoice()
         .subscribe(chosen => {
           if (!chosen) return; // user cancelled
           else {
@@ -54,7 +55,7 @@ export class PersonDetailsComponent {
 
   deleteMe() {
       this.modelService.deletePerson(this.person)
-      this.detailsService.closeDetails()
+      this.closeMe.emit()
   }
 
 }
